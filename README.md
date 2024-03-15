@@ -62,7 +62,13 @@ custom =  c("#666EB4", "#4CA2A8", "#AF74B9","#B49566","#DD887C","#E6B056","#DD7C
 
 ```
 
-Also create a new file containing the actual theme  
+The first line in this script, the **.pkgenv <- new.env(parent=emptyenv())** make sure that these functions are only available inside the library. This is not strictly neccisary, but it help to keep your R enviroment clean. 
+
+next is a vector with all the colours. Add as many colours as you like, but the number of colours must exceede the number of colours needed for your plot. ggplot will pick the colours in the order that you put them, so keep your favorite colours at the start. Visit this site to find colours that go well toghether  
+https://htmlcolorcodes.com/color-picker/
+
+
+Next create a new file containing the actual theme  
 > File - New File - R Script  
 and call it **custom_theme.R** 
 
@@ -98,10 +104,10 @@ and call it **custom_theme.R**
 
  }
 ```
-To learn how to change the different aspects of your ggplot refere to this page:  
+This will govern the actual apperance of your theme. To learn how to change the different aspects of your ggplot refere to this page:  
 https://ggplot2.tidyverse.org/reference/theme.html  
 
-Now create a new file to create the actual functions that you will use in your plots.  
+Now create a new file to create the actual functions that you will use in your plots.
 
 > File - New File - R Script  
 and call it **mainFunction.R** 
@@ -120,6 +126,10 @@ theme_custom <- function(legend=0, palette=custom){
 }
 
 ```
+
+Notice the **lengend** and **palette** argument that is called here. This is the same argument that we use in **custom_theme** and we use this to make changes to the theme from the actual function call in Rstudio.  
+
+At last we add the file zzz.R  
 
 > File - New File - R Script  
 and call it **zzz.R** 
@@ -171,6 +181,7 @@ starwars %>%
   }
 
 ```
+Notice how I use the legend arguemnt to tilt the legend 25 degrees in the exemple. This can be done since we implemented it previously  
 
 your man folder should now look like this:  
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/5650c7ec-e960-4115-aa22-e7970a4b9542)
@@ -244,7 +255,7 @@ first load devtools again
 
 > library(devtools)
 
-Then run use_git  
+Then run **use_git**
 > use_git()
 
 The response would look like this:  
@@ -272,12 +283,18 @@ now anyone can install your theme with the following command:
 library(devtools)
 install_github("your_username/customtheme")
 
+and add theme_custom() to their ggplot() like this
+
+ggplot()
+ geom_col(aes(x,y)+
+ theme_custom()
+
 ```
 
 # change fonts
 
 the fonts for the package have been taken from https://fonts.google.com/
-If you want to change the font of your plot you must change it both in ***zzz.R*** and in **custom_theme.R** 
+If you want to change the font of your plot you must change it both in ***zzz.R*** and in **custom_theme.R** !!
 
 ```
 in zzz.R  
@@ -292,7 +309,7 @@ text=element_text(family="gochi"), # need to include zzz.R
 
 To make changes to the package, simply make the changes in the R files and push to git with the Git pane in RStudio
 whenever you make save a change to any files associated with your package it will show up in the git-pane.  
-Click "staged" and push commit
+Click "staged" and push commit. Why must I click "staged" you may ask : [githowto](https://githowto.com/staging_and_committing)
 
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/1168c35f-c5f6-4986-8dfa-51b0f9805790)
 
