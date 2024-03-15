@@ -28,13 +28,14 @@ This will create a new folder names customTheme with a number of files.
 
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/b01c17a9-d94a-4181-8b82-8c4a5190d7dc)
 
+# add files for the code
+
 We must now add some R files to the package. Your R files should go to the R folder:  
 
 Lets make our first file  
 Go to the R folder and create a new R-file with 
 > File - New File - R Script  
 and call it **custom_colour.R** 
-
 
 ```
 .pkgenv <- new.env(parent=emptyenv())
@@ -172,7 +173,6 @@ starwars %>%
 ```
 
 your man folder should now look like this:  
-
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/5650c7ec-e960-4115-aa22-e7970a4b9542)
 
 # Edit the description and namespace file
@@ -252,43 +252,10 @@ The response would look like this:
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/f66742ce-b6c8-4cda-8de6-f6391f6e3785)
 
 
-```
-
-✔ Setting active project to 'C:/myProject/customTheme'
-✔ Initialising Git repo
-✔ Adding '.Rproj.user', '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store', '.quarto' to '.gitignore'
-There are 7 uncommitted files:
-* '.gitignore'
-* '.Rbuildignore'
-* 'customTheme.Rproj'
-* 'DESCRIPTION'
-* 'man/'
-* 'NAMESPACE'
-* 'R/'
-Is it ok to commit them?
-
-1: Not now
-2: Nope
-3: Yup
-
-```
-
 Answare "Yup" and get the next response 
 
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/bf30b57a-a3a4-4a2b-aa97-68ebc76974e0)
 
-```
-
-✔ Adding files
-✔ Making a commit with message 'Initial commit'
-• A restart of RStudio is required to activate the Git pane
-Restart now?
-
-1: Yes
-2: No
-3: No way
-
-```
 
 Rstudio will now restart and you will see a **Git** pane next to **Build**
 
@@ -298,7 +265,7 @@ Finally we run the function use_github()
 
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/319ff4ba-6c7c-4b0e-9124-c7998537715c)
 
-now anyone can install your theme with the following 
+now anyone can install your theme with the following command: 
 
 
 ```
