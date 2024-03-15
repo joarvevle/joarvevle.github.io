@@ -6,7 +6,12 @@ You will learn to make a theme that can be added to any ggplot and changes the c
 A great site for extra info can be found here:
 https://ourcodingclub.github.io/tutorials/writing-r-package/
 
-Before you start you should install devtools
+Here is an exemple of the plot that you will learn to make  
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/ccdbc7b5-32e8-4e28-8d83-38f1a5af78e1)
+
+
+Before you start you should install devtools  
 
 ```
 install.packages("devtools")
@@ -290,6 +295,7 @@ ggplot()
  theme_custom()
 
 ```
+
 
 # change fonts
 
