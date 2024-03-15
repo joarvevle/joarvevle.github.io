@@ -287,6 +287,21 @@ in cusomTheme.R
 text=element_text(family="gochi"), # need to include zzz.R
 
 ```
-  
+
+# make changes to your package and push to git  
+
+To make changes to the package, simply make the changes in the R files and push to git with the Git pane in RStudio
+whenever you make save a change to any files associated with your package it will show up in the git-pane.  
+Click "staged" and push commit
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/1168c35f-c5f6-4986-8dfa-51b0f9805790)
+
+It will show a new window and you can add some descrition to the change and press "commit"
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/2ce845b1-24c3-4693-a671-6e054ec310b0)
+
+
+
+
 
 
