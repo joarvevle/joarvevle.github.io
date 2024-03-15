@@ -1,7 +1,7 @@
 # Learn to make custom ggplot theme packages for R, with custom colour, fonts and appearance
 
 This site is to help create a custom ggplot theme for R.  
-You will learn to make a theme that can be added to any ggplot and changes the colours, apparance, font and other to reflect your style or organizational requirements.
+You will learn to make a theme that can be added to any ggplot and changes the colours, appearance, font and other to reflect your style or organizational requirements.
 
 A great site for extra info can be found here:
 https://ourcodingclub.github.io/tutorials/writing-r-package/
