@@ -1,6 +1,6 @@
-# Learn to make custom ggplot theme packages for R, with custom colour, fonts and appearance
+# Make custom ggplot theme packages for R, with custom colour, fonts and appearance
 
-This site is to help create a custom ggplot theme for R.  
+This site is to help create a custom ggplot theme package for R.  
 You will learn to make a theme that can be added to any ggplot and changes the colours, appearance, font and other to reflect your style or organizational requirements.
 
 A great site for extra info can be found here:
@@ -8,7 +8,7 @@ https://ourcodingclub.github.io/tutorials/writing-r-package/
 and here  
 https://medium.com/@abertozz/turning-an-r-package-into-a-github-repo-aeaebacfe1c  
 
-Here is an exemple of the plot that you will learn to make  
+Here is an exemple of the plot that this tutorial will help you make.   
 
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/ccdbc7b5-32e8-4e28-8d83-38f1a5af78e1)
 
@@ -31,7 +31,7 @@ Give your package an appropriate name and choose "Open in new session".
 
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/2df4b7a6-f3ee-4412-ab78-74a882d7ba6e)
 
-This will create a new folder names customTheme with a number of files.   
+This will create a new folder named customTheme with a number of files.   
 
 ![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/b01c17a9-d94a-4181-8b82-8c4a5190d7dc)
 
