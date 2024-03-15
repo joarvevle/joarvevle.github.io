@@ -4,7 +4,9 @@ This site is to help create a custom ggplot theme for R.
 You will learn to make a theme that can be added to any ggplot and changes the colours, appearance, font and other to reflect your style or organizational requirements.
 
 A great site for extra info can be found here:
-https://ourcodingclub.github.io/tutorials/writing-r-package/
+https://ourcodingclub.github.io/tutorials/writing-r-package/  
+and here  
+https://medium.com/@abertozz/turning-an-r-package-into-a-github-repo-aeaebacfe1c  
 
 Here is an exemple of the plot that you will learn to make  
 
