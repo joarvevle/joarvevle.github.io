@@ -71,7 +71,7 @@ and call it **custom_theme.R**
   theme_minimal() %+replace%
     theme(
       #change font
-      text=element_text(family="gochi"), # need to include package
+      text=element_text(family="gochi"), # need to include zzz.R
 
       #title, axis title and legend title
       plot.title = element_text(color = '#018374',face="bold",size=22, hjust = 0 , vjust = 1),
@@ -271,6 +271,20 @@ now anyone can install your theme with the following command:
 ```
 library(devtools)
 install_github("your_username/customtheme")
+
+```
+
+# change fonts
+
+the fonts for the package have been taken from https://fonts.google.com/
+If you want to change the font of your plot you must change it both in ***zzz.R*** and in **custom_theme.R** 
+
+```
+in zzz.R  
+sysfonts::font_add_google("Gochi Hand", "gochi") # change "Gochi Hand" to something else to load a different font
+
+in cusomTheme.R  
+text=element_text(family="gochi"), # need to include zzz.R
 
 ```
   
