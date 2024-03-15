@@ -6,6 +6,14 @@ You will learn to make a theme that can be added to any ggplot and changes the c
 A great site for extra info can be found here:
 https://ourcodingclub.github.io/tutorials/writing-r-package/
 
+Before you start you should install devtools
+
+```
+install.packages("devtools")
+
+```
+
+
 # Create a new package
 
 We create this package from a new project. In R studio you find this with File <- New Project  
@@ -123,6 +131,11 @@ The final step will add your custom fonts. This is done through the package show
   showtext::showtext_auto()
 }
 ```
+The R folder should now look like this:  
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/a8580b5e-19f6-43b4-8dfe-2aef86accb7b)
+
+# Add files to man
+
 Now we should add the man files. This should be located in the **man** folder, and have one file for every function. Below is an example for the cusom pallete.
 
 ```
@@ -158,11 +171,141 @@ starwars %>%
 
 ```
 
+your man folder should now look like this:  
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/5650c7ec-e960-4115-aa22-e7970a4b9542)
+
+# Edit the description and namespace file
+
+Open the description file, that is located in your project directory, and make sure to change the "collate" and "imports" to the following. This is an important step. The collate argument tell R in what order the different R files should be run. Since we have some dependencies in our files it is important that we run them in this order. The import argument tell R what libraries that this package is dependent on. The two first "curl" and "ggplot2" is only there to allow the expamples in the man files run, and could be droped if you dont show any exemples in the man files.
+
+Sysfont and showtext is there to allow import of fonts.
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/84df9610-be78-431f-be12-e1d2aceb942b)
 
 
+```
+Package: customTheme
+Type: Package
+Title: Controll font and colour of plots 
+Version: 0.1.0
+Author: yourName
+Maintainer: The package maintainer <your@e.mail>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT License + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Collate:
+  custom_colour.R
+  custom_theme.R
+  mainFunction.R
+  zzz.R
+Imports: 
+    curl,
+    ggplot2,
+    jsonlite,
+    sysfonts,
+    showtext
+```
+
+The namespace file should look like this:
+
+```
+exportPattern("^[[:alpha:]]+")
+
+```
+
+# Installing your package
+Next step would be to installl your package. You do this in the **build** tab in rStudio and the response should look something like this:  
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/dc42f712-4951-4db0-b150-fdb42d9f911d)
+
+Now your package should be ready to be used and you could test it by running this code in a new R script:
+
+```
+library(customTheme)
+library(tidyverse)
+
+starwars %>%
+  head(23) %>%
+  ggplot()+
+  geom_col(aes(homeworld,height, fill=skin_color), position = "dodge")+
+  labs(title = "Age in starwars", subtitle = "for different planets and eye colour", caption = "DataSource : Starwars")+
+  theme_custom(legend = 25)
+
+```
+
+# push the package to github
+
+to allow others to also use your packgage I recomend uploading it to git, this way others could easly get the package to run in their own R sessions.
+
+first load devtools again
+
+> library(devtools)
+
+Then run use_git  
+> use_git()
+
+The response would look like this:  
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/f66742ce-b6c8-4cda-8de6-f6391f6e3785)
 
 
+```
 
+✔ Setting active project to 'C:/myProject/customTheme'
+✔ Initialising Git repo
+✔ Adding '.Rproj.user', '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store', '.quarto' to '.gitignore'
+There are 7 uncommitted files:
+* '.gitignore'
+* '.Rbuildignore'
+* 'customTheme.Rproj'
+* 'DESCRIPTION'
+* 'man/'
+* 'NAMESPACE'
+* 'R/'
+Is it ok to commit them?
+
+1: Not now
+2: Nope
+3: Yup
+
+```
+
+Answare "Yup" and get the next response 
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/bf30b57a-a3a4-4a2b-aa97-68ebc76974e0)
+
+```
+
+✔ Adding files
+✔ Making a commit with message 'Initial commit'
+• A restart of RStudio is required to activate the Git pane
+Restart now?
+
+1: Yes
+2: No
+3: No way
+
+```
+
+Rstudio will now restart and you will see a **Git** pane next to **Build**
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/ce4763c3-fd88-4284-bf23-ad0371594f1b)
+
+Finally we run the function use_github()  
+
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/319ff4ba-6c7c-4b0e-9124-c7998537715c)
+
+now anyone can install your theme with the following 
+
+
+```
+library(devtools)
+install_github("your_username/customtheme")
+
+```
   
 
 
