@@ -57,15 +57,7 @@ custom =  c("#666EB4", "#4CA2A8", "#AF74B9","#B49566","#DD887C","#E6B056","#DD7C
            "#32050c","#0c7867","#0A6028","#17600A","#0F8E3B","#0A6053",
            "#0A4053","#0A4260","#0A1760","#0F628E", "#42600A")
 
-#Add two colour schemes for fill and colour function
-
-.pkgenv[["custom_fill_light"]] <- function(){
-  scale_fill_manual(values = custom_light )
-}
-
-.pkgenv[["custom_colour_light"]] <- function(){
-  scale_colour_manual(values = custom_light )
-}
+# Add  more colours if you need
 
 ```
 
