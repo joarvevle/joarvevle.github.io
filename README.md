@@ -1,7 +1,7 @@
 # Make custom ggplot theme packages for R, with custom colour, fonts and appearance
 
 This site is to help create a custom ggplot theme package for R.  
-You will learn to make a theme that can be added to any ggplot and changes the colours, appearance, font and other to reflect your style or organizational requirements.
+If you follow this guide you should in 20 minutes have your own R package that can be added to any ggplot and changes the colours, appearance, font and other to reflect your style or organizational requirements.
 
 A great site for extra info can be found here:
 https://ourcodingclub.github.io/tutorials/writing-r-package/  
@@ -19,6 +19,20 @@ Before you start you should install devtools
 install.packages("devtools")
 
 ```
+
+And update Rstudio:
+Help <- Check for updates  
+![image](https://github.com/joarvevle/joarvevle.github.io/assets/143795683/303ec7d0-f787-43ce-a3e6-8d69030f79cf)
+
+Also make sure R is updated to latest version. You could do that on [CRAN](https://cran.r-project.org/) or with installr:
+
+```
+install.packages("installr")
+library(installr)
+installr()
+```
+
+And you also need a github account <- [GitHub](https://github.com/)
 
 
 # Create a new package
@@ -45,8 +59,6 @@ Go to the R folder and create a new R-file with
 and call it **custom_colour.R** 
 
 ```
-.pkgenv <- new.env(parent=emptyenv())
-
 custom =  c("#666EB4", "#4CA2A8", "#AF74B9","#B49566","#DD887C","#E6B056","#DD7CC2","#B0CD5D",
            "#0a6053","#018374","#02BC94","#949494","#595959",
            "#006f79", "#00a6b8","#015183", "#fcb614","#da8220","#837401",
@@ -61,17 +73,16 @@ custom =  c("#666EB4", "#4CA2A8", "#AF74B9","#B49566","#DD887C","#E6B056","#DD7C
 
 ```
 
-The first line in this script, the **.pkgenv <- new.env(parent=emptyenv())** make sure that these functions are only available inside the library. This is not strictly neccisary, but it help to keep your R enviroment clean. 
-
-next is a vector with all the colours. Add as many colours as you like, but the number of colours must exceede the number of colours needed for your plot. ggplot will pick the colours in the order that you put them, so keep your favorite colours at the start. Visit this site to find colours that go well toghether  
+This is just a vector with all your colours. Add as many colours as you like, but the number of colours must exceede the number of colours needed for your plot. ggplot will pick the colours in the order that you put them, so keep your favorite colours at the start. You could also add multiple vectors with colour if this is needed. Visit this site to find colours that go well toghether  
 https://htmlcolorcodes.com/color-picker/
-
 
 Next create a new file containing the actual theme  
 > File - New File - R Script  
 and call it **custom_theme.R** 
 
 ```
+.pkgenv <- new.env(parent=emptyenv())
+
 .pkgenv[["theme_custom_base"]] <- function(legend=0){
   theme_minimal() %+replace%
     theme(
@@ -105,6 +116,8 @@ and call it **custom_theme.R**
 ```
 This will govern the actual apperance of your theme. To learn how to change the different aspects of your ggplot refere to this page:  
 https://ggplot2.tidyverse.org/reference/theme.html  
+
+The first line in this script, the **.pkgenv <- new.env(parent=emptyenv())** make sure that these functions are only available inside the library. This is not strictly neccisary, but it help to keep your R enviroment clean. 
 
 Now create a new file to create the actual functions that you will use in your plots.
 
