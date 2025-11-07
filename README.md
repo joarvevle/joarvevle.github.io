@@ -146,7 +146,7 @@ At last we add the file zzz.R
 > File - New File - R Script  
 and call it **zzz.R** 
 
-The final step will add your custom fonts. This is done through the package showtext and sysfonts.
+The final step will add your custom fonts. This is done through the package showtext and sysfonts. Add the following text to zzz.R
 
 ```
 .onLoad <- function(libname, pkgname) {
